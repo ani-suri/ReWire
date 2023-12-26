@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testArticles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="testarticles-v4.xsd" version="1" dateCreated="2018-10-24T19:40:41 GMT">
+	<comments>THE PROVIDER MAKES NO REPRESENTATIONS AND EXTENDS NO WARRANTIES OF ANY KIND, EITHER EXPRESSED OR IMPLIED. THERE ARE NO EXPRESS OR IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.</comments>
+	<url>https://ntp.niehs.nih.gov</url>
+	<contactInformation>ntpdb_support@niehs.nih.gov</contactInformation>
+	<testArticle casRN="17924-92-4" ntpID="10770-C" accID="002-03013-0000-0000-9">
+		<primaryName>Zearalenone</primaryName>
+		<synonyms>
+			<synonym>(S-(E))-3,4,5,6,9,10-Hexahydro-14,16-dihydroxy-3-methyl-1H-2-benzoxacyclotetradecin-1,7(8H)-dione</synonym>
+		</synonyms>
+		<secondaryIDs/>
+		<webURL>https://tools.niehs.nih.gov/cebs3/ui/?casnumber=17924-92-4</webURL>
+		<chemicalPropertiesURL>https://tools.niehs.nih.gov/cebs3/ntpviews/index.cfm?action=testarticle.properties&amp;cas_number=17924-92-4</chemicalPropertiesURL>
+		<toxicityEffectsURL>https://tools.niehs.nih.gov/cebs3/ntpviews/index.cfm?action=testarticle.toxicity&amp;cas_number=17924-92-4</toxicityEffectsURL>
+		<studyAreas>
+			<studyArea type="Standard Toxicology and Carcinogenesis">
+				<studies>
+					<study studyNumber="C50226">
+						<publications>
+							<publication publicationNumber="TR-235" NTISNumber="PB83-165753" NIHNumber="83-1791">
+								<abstractURL>https://ntp.niehs.nih.gov/go/tr235abs</abstractURL>
+								<url>https://ntp.niehs.nih.gov/go/tr235</url>
+								<citation>Carcinogenesis Bioassay of Zearalenone (CASRN 17924-92-4) in F344/N Rats and B6C3F1 Mice (Feed Study)</citation>
+							</publication>
+						</publications>
+					</study>
+				</studies>
+			</studyArea>
+			<studyArea type="Genetic Toxicology">
+				<studies>
+					<study studyNumber="577308">
+						<publications>
+							<publication publicationNumber="SA-2">
+								<url>http://onlinelibrary.wiley.com/doi/10.1002/em.2860080702/pdf</url>
+								<citation>Mortelmans, K., Haworth, S., Lawlor, T., Speck, W., Tainer, B., and Zeiger, E. Salmonella mutagenicity tests. II. Results from the testing of 270 chemicals Environ. Mutagen. Vol. 8 (Suppl 7) (1986) 1-119</citation>
+							</publication>
+						</publications>
+					</study>
+					<study studyNumber="669509">
+						<publications>
+							<publication publicationNumber="ML-8">
+								<citation>McGregor, D., Brown, A., Cattanach, P., Edwards, I., McBride, D., Riach, C., and Caspary, W. Responses of the L5178Y tk+/tk- mouse lymphoma cell forward mutation assay: III. 72 coded chemicals. Environ. Molec. Mutagen. Vol. 12 (1988) 85-154</citation>
+							</publication>
+						</publications>
+					</study>
+					<study studyNumber="679562">
+						<publications>
+							<publication publicationNumber="CY-2">
+								<citation>Galloway, S., Armstrong, M., Reuben, C., Colman, S., Brown, B., Cannon, C., Bloom, A., Nakamura, F., Ahmed, M., Duk, S., Rimpo, J., Margolin, B., Resnick, M., Anderson, B., and Zeiger, E. Chromosome aberration and sister chromatid exchanges in Chinese hamster ovary cells: Evaluations of 108 chemicals. Environ. Molec. Mutagen. Vol. 10 (Suppl 10) (1987) 1-176</citation>
+							</publication>
+						</publications>
+					</study>
+					<study studyNumber="853748">
+						<publications>
+							<publication publicationNumber="DL-11">
+								<citation>Foureman, P., Mason, J.M., Valencia, R., Zimmering, S. Chemical Mutagenesis Testing in Drosophila. X. Results of 70 coded compounds tested for the National Toxicology Program. Environ. Molec. Mutagen. Vol. 23 (1994) 208-227</citation>
+							</publication>
+						</publications>
+					</study>
+				</studies>
+			</studyArea>
+		</studyAreas>
+	</testArticle>
+</testArticles>

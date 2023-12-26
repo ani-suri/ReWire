@@ -1,0 +1,17 @@
+import json, requests
+from pprint import pprint
+
+L1000FWD_URL = 'https://maayanlab.cloud/l1000fwd/'
+
+up_genes = ['TTLL10', 'B3GALT6', 'PUSL1']
+down_genes = ['VWA1', 'ATAD3A', 'PRKCZ' ]
+payload = {
+	'up_genes': up_genes,
+	'down_genes': down_genes
+}
+
+response = requests.post(L1000FWD_URL + 
+                         'sig_search', json=payload)
+if response.status_code == 200:
+	pprint(response.json())
+	json.dump(response.json(), open('api3_result.json', 'w'), indent=4)

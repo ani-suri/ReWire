@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:c="customtypes.xsd" elementFormDefault="qualified" xml:lang="en">
+	<xsd:import namespace="customtypes.xsd" schemaLocation="customtypes.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation>
+		Test Article Overview Information
+		
+		THE PROVIDER MAKES NO REPRESENTATIONS AND EXTENDS NO WARRANTIES OF ANY KIND, EITHER EXPRESSED OR IMPLIED. 
+		THERE ARE NO EXPRESS OR IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+		
+		Contact Information: ntpdb_support@niehs.nih.gov
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:element name="testArticles">
+		<xsd:annotation>
+			<xsd:documentation>
+         		Highest level of XML data; individual test articles will be decendents.
+         		attributes:
+         			- dateCreated: the date this file was generated; will be updated quarterly.
+         			- version: the version of this file; will be updated quarterly.
+         		elements:
+         			- comments: any comments with respect to this XML file
+         			- url: address to the main NTP website
+         			- contactInformation: contact email address to use for this XML file
+         			- testArticle: individual test articles
+    		</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="comments" type="xsd:string"/>
+				<xsd:element name="url" type="xsd:anyURI"/>
+				<xsd:element name="contactInformation" type="xsd:string"/>
+				<xsd:element ref="testArticle" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="dateCreated" type="c:dateTimeWithTimezone" use="required"/>
+			<xsd:attribute name="version" type="xsd:string" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="testArticle">
+		<xsd:annotation>
+			<xsd:documentation>
+         		Individual Test Article data.
+         		attributes:
+         			- casRN: The Chemical Abstract Services Registry Number for this Test Article
+         			- ntpID: The NTP's internal identifier for this Test Article
+         			- accID: The CEBS accession number
+         		elements:
+         			- primaryName: The Primary Name used to identify this Test Article
+         			- synonyms: Any synonymous names that also refer to the same Test Article
+         			- secondaryIDs: Any other forms of identifying this Test Article; id numbers or string names
+         			- webUrl: web address to view the Test Article data page
+         			- chemicalPropertiesURL: web address to view the Chemical Properties for this Test Article
+         			- toxicityEffectsURL: web address to view the Toxicity Effects for this Test Article
+    		</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="primaryName" type="xsd:string"/>
+				<xsd:element ref="synonyms"/>
+				<xsd:element ref="secondaryIDs"/>			
+				<xsd:element name="webURL" type="xsd:anyURI"/>
+				<xsd:element name="chemicalPropertiesURL" type="xsd:anyURI" minOccurs="0"/>
+				<xsd:element name="toxicityEffectsURL" type="xsd:anyURI" minOccurs="0"/>
+				<xsd:element ref="studyAreas"/>
+			</xsd:sequence>
+			<xsd:attribute name="casRN" type="xsd:string" use="required"/>
+			<xsd:attribute name="ntpID" type="xsd:string" use="required"/>
+			<xsd:attribute name="accID" type="xsd:string" use="optional"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="synonyms">
+		<xsd:annotation>
+			<xsd:documentation>
+         		Potential list of synonyms for a given Test Article
+         		elements:
+         			- synonym: A synonymous name that refers to the same Test Article
+    		</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="synonym" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="secondaryIDs">
+		<xsd:annotation>
+			<xsd:documentation>
+         		Potential list of secondary ids for a given Test Article
+         		elements:
+         			- secondaryID: Another identifier of this Test Article; can be a CASRN, other identifying number or string
+    		</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="secondaryID" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="studyAreas">
+		<xsd:annotation>
+			<xsd:documentation>
+         		List of study areas for a given Test Article
+         		elements:
+         			- studyArea: A specific study area for this Test Article
+    		</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="studyArea" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="studyArea">
+		<xsd:annotation>
+			<xsd:documentation>
+         		List of study areas for a given Test Article
+         		attribute:
+         			- type: The type of study area { }
+         		elements:
+         			- studies: The studies for this test article in this study area
+    		</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="studies" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attribute name="type" type="c:studyAreaType" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="studies">
+		<xsd:annotation>
+			<xsd:documentation>
+         		List of studies for a given Test Article
+         		elements:
+         			- study: A specific study of this Test Article (can have multiples)
+    		</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="study" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="study">
+		<xsd:annotation>
+			<xsd:documentation>
+				A specific study for this test article
+				attributes:
+					- studyNumber: the study number used to identify the study
+				elements:
+					- publications: A list of publications for this study
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="publications" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+			<xsd:attribute name="studyNumber" type="xsd:string" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="publications">
+		<xsd:annotation>
+			<xsd:documentation>
+				A list of publications for this study
+				elements:
+					- publication: A specific of publication for this study
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="publication" minOccurs="0" maxOccurs="unbounded" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="publication">
+		<xsd:annotation>
+			<xsd:documentation>
+				Any report information for this study
+				attributes:
+					- publicationNumber: the identifier for the publication
+					- NTISNumber: if defined, the NTIS Number for the publication
+					- NIHNumber: if defined, the NIH Number for the publication
+				elements:
+					- abstractURL: The web address for the abstract 	
+					- url: The web address for the publication 	
+					- citation: The citation for the publication 	
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="abstractURL" type="xsd:anyURI" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="url" type="xsd:anyURI" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="citation" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+			<xsd:attribute name="publicationNumber" type="xsd:string" />
+			<xsd:attribute name="NTISNumber" type="xsd:string" />
+			<xsd:attribute name="NIHNumber" type="xsd:string" />
+		</xsd:complexType>
+	</xsd:element>		
+</xsd:schema>
